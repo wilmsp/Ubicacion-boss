@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ubicación de Boss</title>
+    <script>
+        function enviarUbicacion() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    let lat = position.coords.latitude;
+                    let lon = position.coords.longitude;
+                    let url = "https://wa.me/50688322925?text=He%20encontrado%20a%20Boss.%20Mi%20ubicación%20es:%20https://www.google.com/maps?q=" + lat + "," + lon;
+                    window.location.href = url;
+                });
+            } else {
+                alert("La geolocalización no está disponible en este dispositivo.");
+            }
+        }
+    </script>
+</head>
+<body onload="enviarUbicacion()">
+    <h2>Obteniendo ubicación...</h2>
+</body>
+</html>
